@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kick Off 2027 · Propuesta de contenido</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--lcu-white); color: var(--fg); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--sp-6); }
+  a { color: var(--fg-accent); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--grad-navy-deep);
+    color: var(--fg-on-dark);
+    padding: var(--sp-9) 0 var(--sp-8);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -12%; top: -30%;
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(73,134,196,.28) 0%, rgba(73,134,196,0) 62%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero img.logo { height: 30px; margin-bottom: var(--sp-8); display: block; }
+  .hero .eyebrow { color: var(--lcu-sky-300); }
+  .hero h1 {
+    font-weight: var(--fw-light); font-size: clamp(38px, 6vw, 64px);
+    line-height: var(--lh-tight); letter-spacing: var(--ls-tight);
+    margin: var(--sp-4) 0 var(--sp-5); max-width: 20ch;
+  }
+  .hero h1 strong { font-weight: var(--fw-bold); }
+  .hero p.lead {
+    font-size: 18px; font-weight: var(--fw-light); line-height: var(--lh-normal);
+    color: var(--lcu-sky-100); max-width: 62ch;
+  }
+  .hero .meta {
+    display: flex; flex-wrap: wrap; gap: var(--sp-5); margin-top: var(--sp-7);
+    padding-top: var(--sp-5); border-top: 1px solid rgba(255,255,255,.16);
+  }
+  .hero .meta div { min-width: 120px; }
+  .hero .meta dt { font-size: var(--fs-xs); letter-spacing: var(--ls-wider); text-transform: uppercase; color: var(--lcu-sky-300); margin-bottom: var(--sp-1); }
+  .hero .meta dd { font-size: 15px; font-weight: var(--fw-semibold); }
+
+  /* ---------- Section scaffold ---------- */
+  section { padding: var(--sp-8) 0; }
+  section.soft { background: var(--bg-soft); }
+  .eyebrow { font-weight: var(--fw-semibold); font-size: var(--fs-xs); letter-spacing: var(--ls-wider); text-transform: uppercase; color: var(--fg-accent); }
+  .sec-head { max-width: 70ch; margin-bottom: var(--sp-7); }
+  .sec-head h2 { font-weight: var(--fw-semibold); font-size: var(--fs-h2); line-height: var(--lh-snug); letter-spacing: -0.01em; margin: var(--sp-3) 0 var(--sp-3); }
+  .sec-head p { font-size: 15px; line-height: var(--lh-loose); color: var(--fg-muted); max-width: 68ch; }
+  hr.accent { height: 2px; width: 48px; background: var(--lcu-sky); border: 0; margin-bottom: var(--sp-2); }
+
+  /* ---------- Enfoque (principios) ---------- */
+  .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6) var(--sp-7); }
+  .principle { display: flex; gap: var(--sp-4); }
+  .principle .idx { font-weight: var(--fw-light); font-size: 34px; line-height: 1; color: var(--lcu-sky); font-variant-numeric: tabular-nums; min-width: 46px; }
+  .principle h3 { font-size: 16px; font-weight: var(--fw-semibold); margin-bottom: var(--sp-2); }
+  .principle p { font-size: 14px; line-height: var(--lh-loose); color: var(--fg-muted); }
+
+  /* ---------- Ejes ---------- */
+  .axes { border-top: 1px solid var(--border); }
+  .axis { display: grid; grid-template-columns: 88px 1fr; gap: var(--sp-5); padding: var(--sp-5) 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+  .axis .num { font-weight: var(--fw-light); font-size: 40px; line-height: 1; color: var(--lcu-navy); letter-spacing: var(--ls-tight); font-variant-numeric: tabular-nums; }
+  .axis h3 { font-size: 19px; font-weight: var(--fw-semibold); margin-bottom: var(--sp-2); }
+  .axis p { font-size: 14px; line-height: var(--lh-loose); color: var(--fg-muted); max-width: 74ch; }
+  .axis p .lbl { color: var(--fg); font-weight: var(--fw-semibold); }
+
+  /* ---------- Formatos legend ---------- */
+  .formats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-4) var(--sp-6); }
+  .fmt dt { font-size: 14px; font-weight: var(--fw-semibold); color: var(--lcu-navy); margin-bottom: 2px; }
+  .fmt dd { font-size: 13px; line-height: var(--lh-normal); color: var(--fg-muted); }
+
+  /* ---------- Charlas ---------- */
+  .talks { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6) var(--sp-7); }
+  .talk h4 { font-size: 15px; font-weight: var(--fw-semibold); color: var(--lcu-navy); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--border); margin-bottom: var(--sp-3); }
+  .talk ul { list-style: none; }
+  .talk li { font-size: 13.5px; line-height: var(--lh-normal); color: var(--fg); padding: 7px 0 7px var(--sp-5); position: relative; }
+  .talk li + li { border-top: 1px solid var(--lcu-gray-2); }
+  .talk li::before { content: "\2192"; position: absolute; left: 0; top: 7px; color: var(--lcu-sky); font-weight: var(--fw-semibold); }
+
+  /* ---------- Speakers ---------- */
+  .legend { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-bottom: var(--sp-6); }
+  .legend span { font-size: 12px; color: var(--fg-muted); display: inline-flex; align-items: center; gap: 6px; }
+  .chip { display: inline-block; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: var(--fw-semibold); border-radius: var(--r-pill); padding: 3px 9px; }
+  .chip.sponsor { background: var(--lcu-sky-100); color: var(--lcu-navy-700); }
+  .chip.cache { background: var(--lcu-navy); color: #fff; }
+  .chip.regional { border: 1px solid var(--lcu-sky); color: var(--lcu-sky); }
+  .spk-group { margin-bottom: var(--sp-6); }
+  .spk-group > h3 { font-size: 16px; font-weight: var(--fw-semibold); margin-bottom: var(--sp-4); padding-bottom: var(--sp-2); border-bottom: 1px solid var(--border); }
+  .spk-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-3) var(--sp-6); }
+  .spk { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-3); padding: var(--sp-2) 0; align-items: baseline; }
+  .spk .who { font-size: 14px; }
+  .spk .who b { font-weight: var(--fw-semibold); }
+  .spk .who span { color: var(--fg-muted); }
+
+  /* ---------- Closing ---------- */
+  .closing { background: var(--grad-navy); color: var(--fg-on-dark); }
+  .closing .eyebrow { color: var(--lcu-sky-300); }
+  .closing h2 { color: #fff; }
+  .closing .sec-head p { color: var(--lcu-sky-100); }
+  .disclaimer { font-size: var(--fs-xs); line-height: var(--lh-loose); color: rgba(255,255,255,.55); margin-top: var(--sp-6); max-width: 90ch; }
+  .disclaimer a { color: var(--lcu-sky-300); }
+
+  @media (max-width: 760px) {
+    .principles, .formats, .talks, .spk-list { grid-template-columns: 1fr; }
+    .axis { grid-template-columns: 60px 1fr; gap: var(--sp-4); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="assets/logo-white.png" alt="LATAM ConsultUs">
+    <p class="eyebrow">Kick Off 2027 · Documento de trabajo interno</p>
+    <h1>Nuevas dinámicas, nuevos temas, nuevos <strong>referentes</strong>.</h1>
+    <p class="lead">Propuesta de contenido para la novena edición. El objetivo: renovar el formato con un público de asesores senior, poner sobre la mesa los temas que hoy definen al negocio de gestión patrimonial y traer voces que aporten criterio, no consenso.</p>
+    <dl class="meta">
+      <div><dt>Sede</dt><dd>Argentina</dd></div>
+      <div><dt>Audiencia</dt><dd>Asesores senior de la región</dd></div>
+      <div><dt>Formato</dt><dd>Masterclasses, hubs y dinámicas nuevas</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ENFOQUE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <hr class="accent">
+      <p class="eyebrow">El enfoque</p>
+      <h2>Qué ordena esta edición</h2>
+      <p>Tres decisiones de diseño que ordenan toda la propuesta. Nacen de una lectura simple: el público ya domina el mercado y necesita criterio, no introducción.</p>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <div class="idx">01</div>
+        <div>
+          <h3>El modelo HUB como columna</h3>
+          <p>Sesiones temáticas simultáneas que el asistente elige según su interés. El formato que LATAM ConsultUs viene puliendo desde 2024 y que en 2025 llegó a 21 hubs. Elección real, grupos chicos, foco.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="idx">02</div>
+        <div>
+          <h3>El contenido de mercado, vía gestoras</h3>
+          <p>Macro, renta fija, equities y alternativos se cubren con los portfolio managers de las gestoras que ya patrocinan. El presupuesto de caché se reserva para pocas piezas de alto impacto.</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="idx">03</div>
+        <div>
+          <h3>El negocio del asesor, al centro</h3>
+          <p>El eje más nuevo y el que ninguna gestora puede tratar con credibilidad: modelo de ingresos, fees, IA e independencia. Ahí es donde el evento aporta lo que nadie más le da al asistente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EJES -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <hr class="accent">
+      <p class="eyebrow">Los temas</p>
+      <h2>Ejes de contenido a tocar</h2>
+      <p>Siete ejes pensados para un asesor que no necesita introducción, sino criterio para los próximos tres a cinco años. Globales y pan-regionales: Argentina es la sede, no el tema.</p>
+    </div>
+    <div class="axes">
+
+      <div class="axis">
+        <div class="num">01</div>
+        <div>
+          <h3>Macro y geopolítica: invertir en un régimen cambiado</h3>
+          <p><span class="lbl">Por qué importa:</span> tasas reales positivas, dominancia fiscal, mundo multipolar y ciclo del dólar. No "qué es la inflación", sino una tesis de asignación concreta para una cartera pensada en dólares.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">02</div>
+        <div>
+          <h3>Mercados privados: de la moda al criterio</h3>
+          <p><span class="lbl">Por qué importa:</span> ya todos tienen alternativos. Ahora el senior quiere due diligence, selección y encaje de liquidez. Private credit en pico de ciclo, secundarios y estructuras evergreen sin caer en la falsa liquidez.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">03</div>
+        <div>
+          <h3>La propuesta de valor bajo presión</h3>
+          <p><span class="lbl">Por qué importa:</span> dos fuerzas erosionan a la vez el margen y la ventaja del asesor. El cliente pide ETFs baratos frente al fondo mutuo que pagaba retrocesión, y la IA baja la asimetría de información.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">04</div>
+        <div>
+          <h3>IA en el negocio del asesor, no en la cartera</h3>
+          <p><span class="lbl">Por qué importa:</span> el ángulo que engancha al escéptico es el apalancamiento del tiempo, no el robo-advisor. Research asistido, propuestas y reporting en minutos. Y lo que la IA no reemplaza: relación, confianza y juicio en la volatilidad.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">05</div>
+        <div>
+          <h3>Traspaso generacional y cliente Next Gen</h3>
+          <p><span class="lbl">Por qué importa:</span> es el riesgo número uno del propio negocio. Cuando fallece el cliente patriarca, la mayoría de los herederos cambia de asesor. Cómo construir relación con la segunda generación antes del traspaso.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">06</div>
+        <div>
+          <h3>El futuro del asesor independiente</h3>
+          <p><span class="lbl">Por qué importa:</span> es existencial. Consolidación de firmas, presión de márgenes, sucesión de la propia práctica, independientes frente a las grandes plataformas. El eje que le da columna vertebral al Kick Off.</p>
+        </div>
+      </div>
+
+      <div class="axis">
+        <div class="num">07</div>
+        <div>
+          <h3>Behavioral finance y relación con el cliente</h3>
+          <p><span class="lbl">Por qué importa:</span> el hilo más transversal. Gestionar las emociones del cliente en la volatilidad valida el oficio del senior. Funciona como cierre de jornada o como hub de alta demanda.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMATOS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <hr class="accent">
+      <p class="eyebrow">Los formatos</p>
+      <h2>El repertorio de formatos</h2>
+      <p>Cada sesión usa uno de estos formatos: una sola voz que enseña, dos voces en conflicto, o una dinámica experiencial.</p>
+    </div>
+    <dl class="formats">
+      <div class="fmt"><dt>Keynote</dt><dd>Una voz de peso, tesis clara, 30 minutos.</dd></div>
+      <div class="fmt"><dt>Masterclass</dt><dd>Un experto, un tema, profundidad real. El formato de las gestoras.</dd></div>
+      <div class="fmt"><dt>Hub</dt><dd>Estación temática simultánea, grupo chico, elegida por el asistente.</dd></div>
+      <div class="fmt"><dt>Duelo con voto</dt><dd>Dos posturas opuestas sobre una moción concreta. La sala vota en vivo.</dd></div>
+      <div class="fmt"><dt>Demo en vivo</dt><dd>Construir algo en escena, delante del público.</dd></div>
+      <div class="fmt"><dt>Entrevista de caso</dt><dd>Sentar a un protagonista real y entrevistarlo (por ejemplo, un cliente Next Gen).</dd></div>
+      <div class="fmt"><dt>Invitado especial</dt><dd>Figura no comercial de peso: economista o referente que aporta contexto.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CHARLAS -->
+<section class="soft">
+  <div class="wrap">
+    <div class="sec-head">
+      <hr class="accent">
+      <p class="eyebrow">Las charlas</p>
+      <h2>Temas de charlas para desarrollar</h2>
+      <p>Títulos concretos que salen de los siete ejes, como disparadores para masterclasses, keynotes o hubs. Provocadores en el fondo, sobrios en la forma.</p>
+    </div>
+    <div class="talks">
+
+      <div class="talk">
+        <h4>Macro y geopolítica</h4>
+        <ul>
+          <li>El fin del dinero gratis: qué hace una cartera cuando la tasa real vuelve a existir</li>
+          <li>¿Sigue siendo el treasury el activo libre de riesgo?</li>
+          <li>Dólar, oro y activos reales: coberturas para una era de deuda desbordada</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>Mercados privados</h4>
+        <ul>
+          <li>Private credit ante el primer default cycle: qué mirar antes de entrar</li>
+          <li>La trampa de la falsa liquidez: cómo leer una estructura evergreen</li>
+          <li>Secundarios: la puerta de entrada más eficiente a private equity</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>La propuesta de valor del asesor</h4>
+        <ul>
+          <li>El cliente llega pre-googleado: dónde queda el valor del asesor</li>
+          <li>ETF barato frente a fondo con retrocesión: la conversación que hay que dar</li>
+          <li>De vendedor de producto a asesor por fee: qué cambia en la práctica</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>IA en el negocio</h4>
+        <ul>
+          <li>El asesor aumentado: atender más y mejor sin agrandar la estructura</li>
+          <li>Lo que la IA no reemplaza: relación, confianza y juicio en la volatilidad</li>
+          <li>Riesgo fiduciario y datos del cliente en la era de los copilotos</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>Traspaso generacional</h4>
+        <ul>
+          <li>El heredero que se va: construir relación con la segunda generación a tiempo</li>
+          <li>Gobernanza familiar: cuándo tiene sentido montar un family office</li>
+          <li>Trusts, residencias y movilidad del patrimonio latinoamericano</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>El futuro del independiente</h4>
+        <ul>
+          <li>Vender o crecer: la consolidación de firmas que ya empezó</li>
+          <li>Tu propia sucesión: qué pasa con tu cartera cuando te retirás</li>
+          <li>Independiente frente a la plataforma: dónde se gana la diferencia</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>Behavioral y relación con el cliente</h4>
+        <ul>
+          <li>El cliente en pánico: acompañar sin ceder a la volatilidad</li>
+          <li>Los sesgos del propio asesor: los que nadie audita</li>
+          <li>Qué espera el cliente Next Gen y por qué no te lo dice</li>
+        </ul>
+      </div>
+
+      <div class="talk">
+        <h4>Cierre inspiracional</h4>
+        <ul>
+          <li>Alto rendimiento bajo presión: decisiones cuando no hay margen de error</li>
+          <li>Resiliencia y foco: sostener el rumbo cuando todo cambia alrededor</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <hr class="accent">
+      <p class="eyebrow">Los speakers</p>
+      <h2>Un banco amplio de nombres</h2>
+      <p>Abanico grande para elegir. Mezcla portfolio managers de gestoras patrocinantes, keynotes globales de alto perfil y referentes de la región. Todos son opciones a evaluar por disponibilidad, caché y encaje; ninguno está confirmado.</p>
+    </div>
+
+    <div class="spk-group">
+      <h3>Macro, geopolítica y estrategia</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Marko Papic</b></div><div class="who"><span>Clocktower Group</span></div></div>
+        <div class="spk"><div class="who"><b>Louis-Vincent Gave</b></div><div class="who"><span>Gavekal</span></div></div>
+        <div class="spk"><div class="who"><b>Mohamed El-Erian</b></div><div class="who"><span>Allianz · Cambridge</span></div></div>
+        <div class="spk"><div class="who"><b>Niall Ferguson</b></div><div class="who"><span>historiador</span></div></div>
+        <div class="spk"><div class="who"><b>Ian Bremmer</b></div><div class="who"><span>Eurasia Group</span></div></div>
+        <div class="spk"><div class="who"><b>Peter Zeihan</b></div><div class="who"><span>geopolítica y demografía</span></div></div>
+        <div class="spk"><div class="who"><b>Nouriel Roubini</b></div><div class="who"><span>economista</span></div></div>
+        <div class="spk"><div class="who"><b>Jim O'Neill</b></div><div class="who"><span>ex Goldman Sachs</span></div></div>
+        <div class="spk"><div class="who"><b>Russell Napier</b></div><div class="who"><span>estratega e historiador de mercado</span></div></div>
+        <div class="spk"><div class="who"><b>David Rosenberg</b></div><div class="who"><span>Rosenberg Research</span></div></div>
+        <div class="spk"><div class="who"><b>Lyn Alden</b></div><div class="who"><span>analista macro</span></div></div>
+        <div class="spk"><div class="who"><b>Jim Bianco</b></div><div class="who"><span>Bianco Research</span></div></div>
+        <div class="spk"><div class="who"><b>Pippa Malmgren</b></div><div class="who"><span>geopolítica</span></div></div>
+        <div class="spk"><div class="who"><b>Torsten Slok</b></div><div class="who"><span>Apollo, economista jefe</span></div></div>
+        <div class="spk"><div class="who"><b>Dambisa Moyo</b></div><div class="who"><span>economista</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Renta fija y crédito</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Felipe Villaroel</b></div><div class="who"><span>TwentyFour AM</span></div></div>
+        <div class="spk"><div class="who"><b>Carlos Carranza</b></div><div class="who"><span>M&amp;G</span></div></div>
+        <div class="spk"><div class="who"><b>Rick Rieder</b></div><div class="who"><span>BlackRock</span></div></div>
+        <div class="spk"><div class="who"><b>Jeffrey Gundlach</b></div><div class="who"><span>DoubleLine</span></div></div>
+        <div class="spk"><div class="who"><b>Bob Michele</b></div><div class="who"><span>J.P. Morgan AM</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Equities</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>William Nott</b></div><div class="who"><span>Ninety One</span></div></div>
+        <div class="spk"><div class="who"><b>Amadeo Alentorn</b></div><div class="who"><span>Jupiter AM</span></div></div>
+        <div class="spk"><div class="who"><b>Josh Rubin</b></div><div class="who"><span>Thornburg</span></div></div>
+        <div class="spk"><div class="who"><b>Terry Smith</b></div><div class="who"><span>Fundsmith</span></div></div>
+        <div class="spk"><div class="who"><b>Rob Arnott</b></div><div class="who"><span>Research Affiliates</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Mercados privados y alternativos</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Benjamin Trombley</b></div><div class="who"><span>Apollo</span></div></div>
+        <div class="spk"><div class="who"><b>Brian Gildea</b></div><div class="who"><span>Hamilton Lane</span></div></div>
+        <div class="spk"><div class="who"><b>Lawrence Calcano</b></div><div class="who"><span>iCapital</span></div></div>
+        <div class="spk"><div class="who"><b>Michael Sidgmore</b></div><div class="who"><span>Alt Goes Mainstream</span></div></div>
+        <div class="spk"><div class="who"><b>David Layton</b></div><div class="who"><span>Partners Group</span></div></div>
+        <div class="spk"><div class="who"><b>Marc Rowan</b></div><div class="who"><span>Apollo</span></div></div>
+        <div class="spk"><div class="who"><b>Jon Gray</b></div><div class="who"><span>Blackstone</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Behavioral finance y toma de decisiones</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Morgan Housel</b></div><div class="who"><span>The Psychology of Money</span></div></div>
+        <div class="spk"><div class="who"><b>Michael Mauboussin</b></div><div class="who"><span>Morgan Stanley</span></div></div>
+        <div class="spk"><div class="who"><b>Daniel Crosby</b></div><div class="who"><span>psicología de la inversión</span></div></div>
+        <div class="spk"><div class="who"><b>Annie Duke</b></div><div class="who"><span>decisiones bajo incertidumbre</span></div></div>
+        <div class="spk"><div class="who"><b>Dan Ariely</b></div><div class="who"><span>economía del comportamiento</span></div></div>
+        <div class="spk"><div class="who"><b>Meir Statman</b></div><div class="who"><span>finanzas conductuales</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>IA, tecnología y negocio del asesor</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Thomas Kamei</b></div><div class="who"><span>Morgan Stanley</span></div></div>
+        <div class="spk"><div class="who"><b>Michael Kitces</b></div><div class="who"><span>práctica y fees del asesor</span></div></div>
+        <div class="spk"><div class="who"><b>Joe Duran</b></div><div class="who"><span>industria de asesoramiento</span></div></div>
+        <div class="spk"><div class="who"><b>Peter Diamandis</b></div><div class="who"><span>tecnología y futuro</span></div></div>
+        <div class="spk"><div class="who"><b>Azeem Azhar</b></div><div class="who"><span>Exponential View</span></div></div>
+        <div class="spk"><div class="who"><b>Philip Palaveev</b></div><div class="who"><span>gestión de la práctica</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Estructuración y traspaso generacional</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Dennis Jaffe</b></div><div class="who"><span>gobernanza familiar</span></div></div>
+        <div class="spk"><div class="who"><b>Jim Grubman</b></div><div class="who"><span>patrimonio familiar</span></div></div>
+        <div class="spk"><div class="who"><b>Estructurador patrimonial regional</b></div><div class="who"><span>a definir</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Referentes regionales</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Verónica Rey</b></div><div class="who"><span>LATAM ConsultUs</span></div></div>
+        <div class="spk"><div class="who"><b>Gabriel Oddone</b></div><div class="who"><span>Uruguay</span></div></div>
+        <div class="spk"><div class="who"><b>Ernesto Talvi</b></div><div class="who"><span>economista, Uruguay</span></div></div>
+        <div class="spk"><div class="who"><b>Aldo Lema</b></div><div class="who"><span>economista</span></div></div>
+        <div class="spk"><div class="who"><b>Marcos Buscaglia</b></div><div class="who"><span>Alberdi Partners, Argentina</span></div></div>
+        <div class="spk"><div class="who"><b>Miguel Kiguel</b></div><div class="who"><span>economista, Argentina</span></div></div>
+        <div class="spk"><div class="who"><b>Claudio Porcel</b></div><div class="who"><span>Grupo Balanz</span></div></div>
+        <div class="spk"><div class="who"><b>Pampa Capital</b></div><div class="who"><span>multifamily office, Argentina</span></div></div>
+        <div class="spk"><div class="who"><b>IEB Banca Privada</b></div><div class="who"><span>Argentina</span></div></div>
+        <div class="spk"><div class="who"><b>Roble Capital · Criteria · Advise</b></div><div class="who"><span>Uruguay</span></div></div>
+        <div class="spk"><div class="who"><b>Santander Private Banking</b></div><div class="who"><span>banca privada regional</span></div></div>
+      </div>
+    </div>
+
+    <div class="spk-group">
+      <h3>Cierre inspiracional</h3>
+      <div class="spk-list">
+        <div class="spk"><div class="who"><b>Agustín Pichot</b></div><div class="who"><span>rugby, Los Pumas</span></div></div>
+        <div class="spk"><div class="who"><b>Manu Ginóbili</b></div><div class="who"><span>básquet</span></div></div>
+        <div class="spk"><div class="who"><b>Diego Forlán</b></div><div class="who"><span>fútbol</span></div></div>
+        <div class="spk"><div class="who"><b>Explorador o expedición</b></div><div class="who"><span>a definir</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <hr class="accent">
+      <p class="eyebrow">Kick Off 2027</p>
+      <h2>El valor de ser independiente</h2>
+    </div>
+    <p class="disclaimer">
+      Documento de trabajo interno de LATAM ConsultUs. Los nombres de speakers son opciones a evaluar por disponibilidad, caché y encaje, y no representan confirmaciones. Contexto del formato y de participaciones previas basado en material público de ediciones anteriores del Kick Off (Funds Society, RankiaPro, latamconsultus.com).
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
